@@ -1,14 +1,3 @@
-# Copyright © 2020 di 100101110 Github, <https://github.com/100101110>.
-#
-# Questo file fa parte del progetto <https://github.com/100101110/userbot-100101110>,
-# e viene rilasciato in base alla "Licenza GNU Affero General Public v3.0".
-# Si prega di consultare <https://github.com/100101110/userbot-100101110/blob/master/LICENSE>
-#
-# Tutti i diritti riservati.
-# 
-# Crediti: @100101110
-#
-  
 """Commands:
 .sticker [Optional Emoji]
 .packinfo
@@ -63,9 +52,9 @@ async def _(event):
         user.first_name = user.id
     pack = 1
     userid = event.from_id
-    packname = f"{user.first_name} Pack Vol.{pack}"
+    packname = f"{DEFAULTUSER} Pack Vol.{pack}"
     packshortname = f"vol_{pack}_with_{userid}"
-    await event.edit("**Ora ti derubo!**\n**Mi sa che ti fotto lo Sticker**")
+    await event.edit("**Hey vedi questo sticker?**")
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "Anubis69_roxx.png"
@@ -74,11 +63,11 @@ async def _(event):
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await bot.upload_file(file, file_name=file_ext_ns_ion)
-        packname = f"{user.first_name} Animated {pack}"
+        packname = f"{DEFAULTUSER} Animated {pack}"
         if userid == 719877937:
             packshortname = "TheAnubis_Animated"
         else:
-            packshortname = f"{user.first_name}_animated_{pack}" # format: Uni_Borg_userid
+            packshortname = f"{DEFAULTUSER}_animated_{pack}" # format: Uni_Borg_userid
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
@@ -143,7 +132,7 @@ async def _(event):
                 while response.text == "**Pack selezionato invalido.**":
                     pack += 1
                     prevv = int(pack) - 1
-                    packname = f"{user.first_name} Pack Vol.{pack}"
+                    packname = f"{DEAFULTUSER} Pack Vol.{pack}"
                     packshortname = f"Pack._{pack}_di_{userid}"
                     if not await stickerset_exists(bot_conv, packshortname):
                         await event.edit("**Pack No. **" + str(prevv) + "** Pieno! Creato New Pack, Vol. **" + str(pack))
@@ -205,8 +194,7 @@ async def _(event):
                 await silently_send_message(bot_conv, "/done")
 
 
-    await event.edit(f"**¯\_(ツ)_/¯ Sticker rubato, ora si trova [qui](t.me/addstickers/{packshortname}), pack{pack}**"
-                     f"di {DEFAULTUSER}\n ")
+    await event.edit(f"**Adesso l'ho rubato, si trova [qui](t.me/addstickers/{packshortname}), nel mio pacchetto personale ¯\_(ツ)_/¯"")
 
 
 @bot.on(dev_cmd(pattern="packinfo"))
