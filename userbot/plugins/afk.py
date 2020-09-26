@@ -55,9 +55,9 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await bot.send_message(event.chat_id, f"**Fuck, Ora vado AFK ⛔️** __MOTIVO ~ {reason}__")
+            await bot.send_message(event.chat_id, f"**Vado AFK ⛔️** __MOTIVO ~ {reason}__")
         else:
-            await bot.send_message(event.chat_id, f"**Fuck, Ora sono AFK!**")
+            await bot.send_message(event.chat_id, f"**Vado AFK.**")
         await asyncio.sleep(5)
         await event.delete()
         try:
@@ -82,7 +82,7 @@ async def set_not_afk(event):
         total_afk_time = str((afk_end - afk_start))
     current_message = event.message.message
     if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E0602
-        shite = await bot.send_message(event.chat_id, "__Fuck, non sono più AFK!__\n**Ora puoi scrivermi.**\nSono stato afk per:`" + total_afk_time + "`")
+        shite = await bot.send_message(event.chat_id, "__Non sono più AFK!__\nSono stato afk per:`" + total_afk_time + "`")
         try:
             await bot.send_message(  # pylint:disable=E0602
                 Var.PRIVATE_GROUP_ID,  # pylint:disable=E0602
@@ -138,7 +138,7 @@ async def on_afk(event):
             time %= 60
             seconds = time
             if days == 1:
-                afk_since = "**Yesterday**"
+                afk_since = "**Ieri**"
             elif days > 1:
                 if days > 6:
                     date = now + \
@@ -155,10 +155,10 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"**⛔️ IL MIO CAPO È OFF ⛔️ DA** `{total_afk_time}`\n**QUINDI NON SPAMMARE GRAZIE.**" + \
-            f"\n\n**QUANDO SONO ONLINE RISPONDO A TUTTI BYE.**\n**MOTIVO**: {reason}" \
+        message_to_reply = f"**⛔️ IL MIO PADRONE È AFK ⛔️\nDA** `{total_afk_time}`\n**QUINDI NON SPAMMARE GRAZIE.**" + \
+            f"\n\n**QUANDO SONO ONLINE RISPONDO A TUTTI.**\n**MOTIVO**: {reason}" \
             if reason \
-            else f"**⛔️ AL MOMENTO SONO OFF ⛔️**\n\n**LASCIA UN MESSAGGIO SE DEVI CHIEDERMI QUALCOSA GRAZIE ‼️**\n**APPENA TORNO CERCO DI RISPONDERE BYE 👍**"
+            else f"**⛔️ AL MOMENTO SONO AFK ⛔️**\n\n**LASCIA UN MESSAGGIO SE DEVI CHIEDERMI QUALCOSA GRAZIE ‼️**\n**APPENA TORNO CERCO DI RISPONDERE 👍**"
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
