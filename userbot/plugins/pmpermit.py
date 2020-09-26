@@ -1,14 +1,3 @@
-# Copyright © 2020 di 100101110 Github, <https://github.com/100101110>.
-#
-# Questo file fa parte del progetto <https://github.com/100101110/userbot-100101110>,
-# e viene rilasciato in base alla "Licenza GNU Affero General Public v3.0".
-# Si prega di consultare <https://github.com/100101110/userbot-100101110/blob/master/LICENSE>
-#
-# Tutti i diritti riservati.
-# 
-# Crediti: @100101110
-#
-  
 import asyncio
 import io
 
@@ -24,10 +13,10 @@ PREV_REPLY_MESSAGE = {}
 CACHE = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
-USER_BOT_WARN_ZERO = "**Stai spammando troppo, sei bloccato dal bot sono impegnato 👎**"
-USER_BOT_NO_WARN = ("[╚ »✪« ╝ SYSTEM BOT ╚ »✪« ╝](tg://user?id=1133198248)\n\n"
-                    "**Specifica il motivo**\n**perchè cerchi** "f"{DEFAULTUSER}\n\n"
-                    "**Lascia il tuo tag e numero,**\n**rispondo entro 24h.**\n**Premi `/start` e scegli**\n**il motivo della chat.**\n\n"
+USER_BOT_WARN_ZERO = "**Coglione il mio Bot ti ha bloccato, la prossima volta evita di spammare 👎**"
+USER_BOT_NO_WARN = ("[╚ »✪« ╝ **OOF UserBot** ╚ »✪« ╝]\n\n"
+                    "**Ciao, specifica perché mi stai scrivendo.**\n\n"
+                    "**Scrivi `/start` e scegli il motivo.**\n\n"
                     "▬▬▬ ✪ ▬▬ ◆ ▬▬ ✪ ▬▬▬")
 # ============================================
 
@@ -48,7 +37,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await PREV_REPLY_MESSAGE[chat.id].delete()
                     del PREV_REPLY_MESSAGE[chat.id]
                 pmpermit_sql.approve(chat.id, reason)
-                await event.edit("ᴜꜱᴇʀ ᴀᴘᴘʀᴏᴠᴀᴛᴏ [{}](tg://user?id={})".format(firstname, chat.id))
+                await event.edit("Utente Approvato [{}](tg://user?id={})".format(firstname, chat.id))
                 await asyncio.sleep(3)
                 await event.delete()
 
@@ -62,8 +51,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             if not pmpermit_sql.is_approved(chat.id):
                 if not chat.id in PM_WARNS:
                     pmpermit_sql.approve(chat.id, "outgoing")
-                    bruh = "**🆕 ᴜꜱᴇʀ ❕**"
-                    rko = await bot.send_message(event.chat_id, bruh)
+                    rko = await bot.send_message(event.chat_id)
                     await asyncio.sleep(3)
                     await rko.delete()
 
@@ -79,7 +67,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if event.is_private:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit("**Sei stato bloccato, non puoi inviarmi messaggi**[{}](tg://user?id={})".format(firstname, chat.id))
+                await event.edit("**Coglione sei stato bloccato dal mio Bot, non puoi più inviarmi messaggi.**)
                 await asyncio.sleep(3)
                 await event.client(functions.contacts.BlockRequest(chat.id))
 
