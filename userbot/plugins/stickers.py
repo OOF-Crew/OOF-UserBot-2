@@ -194,7 +194,7 @@ async def _(event):
                 await silently_send_message(bot_conv, "/done")
 
 
-    await event.edit(f"**Adesso l'ho rubato, si trova [qui](t.me/addstickers/{packshortname}), nel mio pacchetto personale ¯\_(ツ)_/¯"")
+    await event.edit(f"**Adesso l'ho rubato, si trova [qui](t.me/addstickers/{packshortname}), nel mio pacchetto personale ¯\_(ツ)_/¯")
 
 
 @bot.on(dev_cmd(pattern="packinfo"))
