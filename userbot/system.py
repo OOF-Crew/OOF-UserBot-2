@@ -275,7 +275,7 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**USERBOT-100101110 ERROR REPORT**\n"
+                    text = "**OOF-UserBot ERROR REPORT**\n"
                     text += "Mostra il file a @100101110 se non sai risolvere\n"
 
                     ftext = "========== DISCLAIMER =========="
@@ -308,16 +308,16 @@ def register(**args):
 
                     ftext += result
 
-                    file = open("userbot-100101110_error.log", "w+")
+                    file = open("OOF-UserBot_error.log", "w+")
                     file.write(ftext)
                     file.close()
 
                
                     
                     await check.client.send_file(send_to,
-                                                 "userbot-100101110_error.log",
+                                                 "OOF-UserBot_error.log",
                                                  caption=text)
-                    remove("userbot-100101110_error.log")
+                    remove("OOF-UserBot_error.log")
             else:
                 pass
                 
