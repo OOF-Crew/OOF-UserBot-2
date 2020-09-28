@@ -44,7 +44,7 @@ async def _(event):
                 "**⚠️ Verrai bloccato dal bot se continui a spammare ti avviso ⚠️**\n\n")
          TWO = (" `███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ `\n\n**Coglione sei stato bloccato dal bot.**")  
          THREE = ("Scrivi la tua domanda tutta in un unico messaggio, ti risponderò entro 24 ore.\n**Non spammare se non vuoi essere bloccato dal bot.**")
-         LWARN = ("**⚠️ Ultimo avviso ⚠️\nNon scrivere più nulla sennò verrai bloccato dal mio Bot.")
+         LWARN = ("**⚠️ Ultimo avviso ⚠️**\nNon scrivere più nulla sennò verrai bloccato dal mio Bot.")
      
     async with bot.conversation(chat) as conv:
          await bot.send_message(chat, PM)
