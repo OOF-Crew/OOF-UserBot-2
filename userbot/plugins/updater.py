@@ -1,4 +1,4 @@
-"""Update UserBot code (per userbot-100101110)
+"""Update UserBot code
 Syntax: .update"""
 
 import requests
@@ -23,16 +23,16 @@ from userbot.system import dev_cmd
 from var import Var
 
 # -- Constants -- #
-UPSTREAM_REPO_URL = "https://github.com/100101110/userbot-100101110.git"
+UPSTREAM_REPO_URL = "https://github.com/MarvynSTAR/OOF-UserBot.git"
 HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/master"
 DELETE_TIMEOUT = 4
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
 # -- Constants End -- #
 
 
-@bot.on(dev_cmd("update ?(.*)", outgoing=True))
+@bot.on(dev_cmd("newupdate ?(.*)", outgoing=True))
 async def updater(upd):
-    "For .update command, check if the bot is up to date, update if specified"
+    "For .newupdate command, check if the bot is up to date, update if specified"
     await upd.edit('**Ricerca update in corso....**')
 
     try:
