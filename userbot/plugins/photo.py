@@ -38,7 +38,7 @@ if 1 == 1:
             try:
                 id = int(id)
                 if id <= 0:
-                    await event.edit("**ID number you entered is invalid**")
+                    await event.edit("**ID number you entered is invalid.**")
                     return
             except:
                  await event.edit("**Are you Comedy Me ?**")
