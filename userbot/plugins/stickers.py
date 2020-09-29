@@ -28,10 +28,15 @@ from telethon.tl.types import (
 )
 from userbot.system import dev_cmd
 from userbot import ALIVE_NAME, bot
+from userbot import oof_pack, bot
 from userbot.uniborgConfig import Config
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
+# ============================================
+
+# ================= CONSTANT =================
+OOF = str(oof_pack) if oof_pack else "100101110"
 # ============================================
 
 @bot.on(dev_cmd(pattern="sticker ?(.*)"))
@@ -94,7 +99,7 @@ async def _(event):
             response = await silently_send_message(bot_conv, packname)
             if not response.text.startswith("Alright!"):
                 if "unacceptable" in response.text:
-                    packname = f"{user.id} Pack Vol.{pack}"
+                    packname = f"{OOF} Pack Vol.{pack}"
                     response = await silently_send_message(bot_conv, packname)
                 else:
                     await event.edit(f"**FAILED**! @Stickers : {response.text}")
@@ -116,7 +121,7 @@ async def _(event):
                 await event.edit(f"**FAILED**! @Stickers : {response.text}")
                 return
             elif response.text == "Sorry, il nome è inaccettabile.":
-                packshortname = f"pack_{pack}_animated_{user.id}"
+                packshortname = f"pack_{pack}_animated_{OOF}"
                 await silently_send_message(bot_conv, packshortname)
         else:
             await silently_send_message(bot_conv, "/cancel")
@@ -146,7 +151,7 @@ async def _(event):
                         response = await silently_send_message(bot_conv, packname)
                         if not response.text.startswith("Alright!"):
                             if "unacceptable" in response.text:
-                                packname = f"{user.id} Pack Vol.{pack}"
+                                packname = f"{OOF} Pack Vol.{pack}"
                                 response = await silently_send_message(bot_conv, packname)
                             else:
                                 await event.edit(f"**FAILED**! @Stickers : {response.text}")
@@ -168,7 +173,7 @@ async def _(event):
                             await event.edit(f"**FAILED**! @Stickers : {response.text}")
                             return
                         elif response.text == "Il nome è inaccettabile.":
-                            packshortname = f"Pack_{pack}_animated_{user.id}"
+                            packshortname = f"Pack_{pack}_animated_{OOF}"
                             await silently_send_message(bot_conv, packshortname)
                     else:
                         await event.edit("Pack No. " + str(prevv) + " pieno! Passo a Vol. " + str(pack))
